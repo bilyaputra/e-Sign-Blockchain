@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>e-Sign</title>
+	<link rel="shortcut icon" href="source/Signature.png" type="image/x-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body style="height: 100vh;">
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="index.html">
+				<img src="source/logo-removebg-preview.png" alt="Logo" width="90" height="30" class="d-inline-block align-text-top">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="unggah.html">Unggah</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="create-certif.html">Publikasi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="publish.html">Validasi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="validation.html">Riwayat</a>
+					</li>
+				</ul>
+				<span id="account" class="navbar-text">
+					
+				</span>
+				<!-- <a class="btn btn-outline-success" href="signup.html">Sign UP</a> -->
+			</div>
+		</div>
+	</nav>
+
+	<div class="container mt-5">
+		<h1 class="text-center">
+			Fitur Aplikasi
+		</h1>
+		<div class="row justify-content-md-center align-items-center p-5" >
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class="card">
+					<div class="d-flex justify-content-center mt-5">
+						<img src="source/Group 1.png" class="card-img-top" alt="..." style="height: 8em; width: auto;">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Unggah Tanda Tangan</h5>
+						<p class="card-text">Mengunggah tanda tangan yang ingin digunakan untuk membuat e-sign</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+				<div class="card" >
+					<div class="d-flex justify-content-center mt-5">
+						<img src="source/Group 2.png" class="card-img-top" alt="..." style="height: 8em; width: auto;">
+					</div>
+					<div class="card-body">
+						<p class="card-title fw-semibold" style="font-size: 19px;">Publikasi Tanda Tangan</>
+						<p class="card-text">Memublikasi tanda tangan elektronik ke jaringan blockchain</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+				<div class="card" >
+					<div class="d-flex justify-content-center mt-5">
+						<img src="source/Group 3.png" class="card-img-top" alt="..." style="height: 8em; width: auto;">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Validasi Tanda tangan</h5>
+						<p class="card-text">Memvalidasi tanda tangan berdasarkan hash digital signature</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+				<div class="card">
+					<div class="d-flex justify-content-center mt-5">
+						<img src="source/Group 4.png" class="card-img-top" alt="..." style="height: 8em; width: auto;">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Riwayat Tanda Tangan</h5>
+						<p class="card-text">Daftar riwayat dari publikasi tanda tangan elektronik pada jaringan blockchain</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>  
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>  
+    <script src="app.js"></script>
+</body>
+</html>
