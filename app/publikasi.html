@@ -139,10 +139,10 @@
 							<a class="nav-link" aria-current="page" href="index.html">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" href="unggah.html">Unggah</a>
+							<a class="nav-link" href="unggah.html">Unggah</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="publikasi.html">Publikasi</a>
+							<a class="nav-link active" href="create-certif.html">Publikasi</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="publish.html">Validasi</a>
@@ -158,16 +158,37 @@
 
 		<div class="container mt-5">
 			<div style="margin: 0 auto; text-align: center">
-				<h1>Unggah Tanda Tangan</h1>
+				<h1>Publikasi Tanda Tangan</h1>
 			</div>
-			<div class="container mt-5">
-				<div class="row justify-content-center align-items-center">
-					<div class="col-md-3"></div>
-					<div class="col-md-6 p-2 border border-primary rounded">
-						<input type="file" class="upload" id="image"  accept="image/png, image/jpeg" required />
+		</div>
+
+        <div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div
+					class="col-md-8"
+					style="
+						border: solid 1px #34495e;
+						border-radius: 5px;
+						padding: 20px 20px;
+						margin-top: 30px;
+					"
+				>
+					<div class="publish-form">
+						<fieldset id="form_fieldset">
+							<form>
+                                <div>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Perihal</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+								<button type="submit" class="btn btn-primary mt-3">
+								Publikasi
+							</button>
+							</form>
+						</fieldset>
 					</div>
-					<div class="col-md-3"></div>
 				</div>
+				<div class="col-md-2"></div>
 			</div>
 		</div>
 

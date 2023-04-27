@@ -81,23 +81,9 @@ $(document).ready(function(){
 			} catch (error) {
 			console.log(error);
 			}
-
-            // try{
-            //     await App.e_Sign.setTtd(App.account[0], res.data.IpfsHash);
-            //     $("#responseText").html(
-            //         "<p class='text-danger'><b>Tanda tangan telah diunggah ke dalam jaringan blockchain</b></p>"
-            //     );
-            //     var modal = document.getElementById("myModal");
-			// 	modal.style.display = "block";
-
-			// 	var span = document.getElementsByClassName("close")[0];
-			// 	span.onclick = function () {
-			// 		modal.style.display = "none";
-			// 	};
-            // }catch(error){
-            //     console.log(error);
-            // }
 		}
+
+    
     
     $("#image").change(function (event) {
         input = $("#image")[0].files[0];
