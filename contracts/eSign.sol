@@ -17,6 +17,7 @@ contract eSign {
   function setDataTtd(bytes memory sign, string memory perihal, string memory cidTtd, uint timestamp, address addr, string memory cidTtdQr) public {
     kumpulanData memory data = kumpulanData(perihal, cidTtd, timestamp, addr, cidTtdQr);
     DataTtd[sign] = data;
+    setRiwayat(addr, sign);
   }
 
   function getDataTtd(bytes memory sign) public view returns (string memory, string memory, uint, address, string memory){
