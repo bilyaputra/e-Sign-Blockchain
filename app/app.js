@@ -82,8 +82,8 @@ App = {
         //modal
         $("#responseText").html(
             "<h5 class='text-success'>Tanda tangan berhasil dipublikasi ke dalam jaringan Blockchain</h5>" +
-            "<img src='" + combinedImage + "'>" +
-            "<p>Signature : " + signature + "</p>" +
+            "<img src='" + combinedImage + "' height='150px'>" +
+            "<p>Hash Signature : " + signature + "</p>" +
             "<a href='" + IPFS_GATEWAY + cidTtdQr + "' target='blank'> <button type='button' class='btn btn-primary'>Unduh Ttd + Qr</button></a>"
         );
         var modal = document.getElementById("myModal");
