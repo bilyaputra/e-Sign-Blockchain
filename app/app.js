@@ -37,63 +37,64 @@ App = {
 
     publikasi: async (perihal)=> {
         const IPFS_GATEWAY = 'https://gateway.pinata.cloud/ipfs/';
-        const TEXT_QR = 'http://localhost:3000/validasi.html/'  
+        const TEXT_QR = 'http://localhost:3000/validasi.html?signature='  
         const cid = await App.e_Sign.getTtd(App.account[0]);
         var waktu = new Date().getTime();
 
         var hash = web3.utils.soliditySha3(cid, perihal, waktu);
+        // var hash = web3.utils.soliditySha3(perihal);
         const signature = await ethereum.request({ method: "personal_sign", params: [App.account[0], hash]}); 
-        
+        console.log(signature);
         //combine image
-        const img = await loadImage(IPFS_GATEWAY + cid);
-        var canvas = document.createElement('canvas');
-        var ctx = canvas.getContext('2d');
+        // const img = await loadImage(IPFS_GATEWAY + cid);
+        // var canvas = document.createElement('canvas');
+        // var ctx = canvas.getContext('2d');
 
-        // Menggambar kode QR
-        var qr = new QRCode(canvas, {
-        text: TEXT_QR + signature,
-        width: img.height,
-        height: img.height,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.H
-        });
+        // // Menggambar kode QR
+        // var qr = new QRCode(canvas, {
+        // text: TEXT_QR + signature,
+        // width: img.height,
+        // height: img.height,
+        // colorDark: '#000000',
+        // colorLight: '#ffffff',
+        // correctLevel: QRCode.CorrectLevel.H
+        // });
 
-        canvas.width = img.width + qr._el.firstChild.width;
-        canvas.height = img.height;
-        // Menggabungkan kode QR dan gambar di dalam satu canvas
-        ctx.drawImage(img, 0, 0);
-        ctx.drawImage(qr._el.firstChild, img.width, 0); // _el adalah elemen DOM asli dari QRCode.js
-        const combinedImage = canvas.toDataURL();
+        // canvas.width = img.width + qr._el.firstChild.width;
+        // canvas.height = img.height;
+        // // Menggabungkan kode QR dan gambar di dalam satu canvas
+        // ctx.drawImage(img, 0, 0);
+        // ctx.drawImage(qr._el.firstChild, img.width, 0); // _el adalah elemen DOM asli dari QRCode.js
+        // const combinedImage = canvas.toDataURL();
 
-        var imgElement = document.createElement('img');
-        imgElement.src = combinedImage;
+        // var imgElement = document.createElement('img');
+        // imgElement.src = combinedImage;
 
-        var cidTtdQr = await fetch(combinedImage)
-        .then(res => res.blob())
-        .then(blob => {
-        const file = new File([blob], 'dot.png', blob)
-        return pinFileToIPFS("ttd+qr", file, "publikasi");
-        })
-        // console.log(cidTtdQr);
-        // //save data to blockchain
-        await App.e_Sign.setDataTtd(signature, perihal, cid, waktu, App.account[0], cidTtdQr, {from:App.account[0]});
+        // var cidTtdQr = await fetch(combinedImage)
+        // .then(res => res.blob())
+        // .then(blob => {
+        // const file = new File([blob], 'dot.png', blob)
+        // return pinFileToIPFS("ttd+qr", file, "publikasi");
+        // })
+        // // console.log(cidTtdQr);
+        // // //save data to blockchain
+        // await App.e_Sign.setDataTtd(signature, perihal, cid, waktu, App.account[0], cidTtdQr, {from:App.account[0]});
         
-        //modal
-        $("#responseText").html(
-            "<h5 class='text-success'>Tanda tangan berhasil dipublikasi ke dalam jaringan Blockchain</h5>" +
-            "<img src='" + combinedImage + "' height='150px'>" +
-            "<p>Hash Signature : " + signature + "</p>" +
-            "<a href='" + IPFS_GATEWAY + cidTtdQr + "' target='blank'> <button type='button' class='btn btn-primary'>Unduh Ttd + Qr</button></a>"
-        );
-        var modal = document.getElementById("myModal");
-        modal.style.display = "block";
+        // //modal
+        // $("#responseText").html(
+        //     "<h5 class='text-success'>Tanda tangan berhasil dipublikasi ke dalam jaringan Blockchain</h5>" +
+        //     "<img src='" + combinedImage + "' height='150px'>" +
+        //     "<p>Hash Signature : " + signature + "</p>" +
+        //     "<a href='" + IPFS_GATEWAY + cidTtdQr + "' target='blank'> <button type='button' class='btn btn-primary'>Unduh Ttd + Qr</button></a>"
+        // );
+        // var modal = document.getElementById("myModal");
+        // modal.style.display = "block";
 
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function () {
-            modal.style.display = "none";
-            window.location.reload();
-        };
+        // var span = document.getElementsByClassName("close")[0];
+        // span.onclick = function () {
+        //     modal.style.display = "none";
+        //     window.location.reload();
+        // };
     }
 }
 
