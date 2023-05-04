@@ -102,11 +102,17 @@ App = {
 		}else{
 			invalid(signature);
 		}
+    },
+
+    riwayat: async()=> {
+        await App.load();
+        const history = await App.e_Sign.getRiwayat(App.account[0]);
+        console.log(history);
     }
 }
 
 $(document).ready(function(){
-    App.validPage()    
+    App.riwayat()    
     
     ethereum.on('accountsChanged', function (accounts) {
         window.location.reload()        

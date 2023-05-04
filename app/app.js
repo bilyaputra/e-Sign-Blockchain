@@ -44,7 +44,6 @@ App = {
 
         var hash = web3.utils.soliditySha3(perihal, cid, waktu);
         const signature = await ethereum.request({ method: "personal_sign", params: [App.account[0], hash]}); 
-        console.log(signature);
         
         //combine image
         const img = await loadImage(IPFS_GATEWAY + cid);
@@ -96,7 +95,7 @@ App = {
             modal.style.display = "none";
             window.location.reload();
         };
-    },
+    }
 }
 
 $(document).ready(function(){

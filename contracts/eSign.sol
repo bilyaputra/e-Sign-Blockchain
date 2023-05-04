@@ -35,6 +35,7 @@ contract eSign {
     kumpulanRiwayat memory dataRiwayat = kumpulanRiwayat(timestamp, sign, perihal);
     riwayat[_addr].push(dataRiwayat);
   }
+  
 // nilai yg dikembalikan bukan array struct
   function getRiwayat(address _addr) public view returns (kumpulanRiwayat[] memory){
     return riwayat[_addr];
