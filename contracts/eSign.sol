@@ -4,32 +4,39 @@ pragma solidity >=0.4.22 <0.9.0;
 contract eSign {
   mapping(address => string) public ttd;
   mapping(bytes => kumpulanData) public DataTtd;
-  mapping(address => bytes[]) public riwayat;
+  mapping(address => kumpulanRiwayat[]) public riwayat;
+
+  struct kumpulanRiwayat{
+    string timestamp;
+    bytes signature;
+    string perihal;
+  }
 
   struct kumpulanData {
     string perihal;
     string CIDTtd;
-    uint timestamp;
+    string timestamp;
     address addr;
     string CIDTtdQr;
   }
 
-  function setDataTtd(bytes memory sign, string memory perihal, string memory cidTtd, uint timestamp, address addr, string memory cidTtdQr) public {
+  function setDataTtd(bytes memory sign, string memory perihal, string memory cidTtd, string memory timestamp, address addr, string memory cidTtdQr) public {
     kumpulanData memory data = kumpulanData(perihal, cidTtd, timestamp, addr, cidTtdQr);
     DataTtd[sign] = data;
-    setRiwayat(addr, sign);
+    setRiwayat(addr, timestamp, sign, perihal);
   }
 
-  function getDataTtd(bytes memory sign) public view returns (string memory, string memory, uint, address, string memory){
+  function getDataTtd(bytes memory sign) public view returns (string memory, string memory, string memory, address, string memory){
     kumpulanData storage data = DataTtd[sign];
     return (data.perihal, data.CIDTtd, data.timestamp, data.addr, data.CIDTtdQr);
   }
 
-  function setRiwayat(address _addr, bytes memory sign) public {
-    riwayat[_addr].push(sign);
+  function setRiwayat(address _addr, string memory timestamp, bytes memory sign, string memory perihal) public {
+    kumpulanRiwayat memory dataRiwayat = kumpulanRiwayat(timestamp, sign, perihal);
+    riwayat[_addr].push(dataRiwayat);
   }
-
-  function getRiwayat(address _addr) public view returns (bytes[] memory){
+// nilai yg dikembalikan bukan array struct
+  function getRiwayat(address _addr) public view returns (kumpulanRiwayat[] memory){
     return riwayat[_addr];
   }
 
