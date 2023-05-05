@@ -39,21 +39,32 @@ App = {
         await App.load();
         const history = await App.e_Sign.getRiwayat(App.account[0]);
         if(history.length == 0){
-            // Find a <table> element with id="myTable":
-            var table = document.getElementById("myTable");
+            $("#myTable").html(
+                "<tr>" + 
+                "<td colspan='3' class='text-center'><h5 class='text-danger'>Tidak ada riwayat</h5></td>" +
+                "<tr>"
+            );
+        }else{
+            for(var i=0; i<history.length; i++){
+                var date = new Date(parseInt(history[i].timestamp));
+                // Find a <table> element with id="myTable":
+                var table = document.getElementById("myTable");
 
-            // Create an empty <tr> element and add it to the 1st position of the table:
-            var row = table.insertRow(0);
+                // Create an empty <tr> element and add it to the 1st position of the table:
+                var row = table.insertRow(i);
 
-            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
+                // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
 
-            // Add some text to the new cells:
-            cell1.innerHTML = "1";
-            cell2.innerHTML = "NEW CELL2";
-            cell3.innerHTML = "NEW CELL2";
+                // Add some text to the new cells:
+                cell1.innerHTML = i + 1;
+                cell2.innerHTML = "<p>" + date.customFormat( "#DD# #MMMM# #YYYY# #hh#:#mm#:#ss# #AMPM#" ) + "</p>" + 
+                                "<small class='text-muted'><i>" + history[i].signature + "</i></small>";
+                cell3.innerHTML = history[i].perihal;
+            }
+            
         }
     }
 }
