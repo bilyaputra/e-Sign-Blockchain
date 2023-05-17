@@ -23,7 +23,7 @@ App = {
             $("#modalHead").html(
                 "Pemberitahuan"
             )
-            $("#responseText").html(
+            $("#responModal").html(
                 "<h5 class='text-danger'>Install Metamask terlebih dahulu pada browser Anda sebelum menggunakan aplikasi!</h5>"
             );
             var modal = document.getElementById("myModal");
@@ -97,7 +97,7 @@ App = {
             $("#modalHead").html(
                 "Status Publikasi"
             )
-            $("#responseText").html(
+            $("#responModal").html(
                 "<h5 class='text-success'>Tanda tangan berhasil dipublikasi ke dalam jaringan Blockchain</h5>" +
                 "<img src='" + combinedImage + "' height='150px'>" +
                 "<p>Hash Signature : " + signature + "</p>" +
@@ -261,8 +261,8 @@ const pinFileToIPFS = async (fileName, input, fitur) => {
             $("#modalHead").html(
                 "Status Unggah"
             )
-            $("#responseText").html(
-                "<h5>Tanda tangan berhasil diunggah ke dalam jaringan Blockchain</h5>"
+            $("#responModal").html(
+                "<h5 class='text-success'>Tanda tangan berhasil diunggah ke dalam jaringan Blockchain</h5>"
             );
             var modal = document.getElementById("myModal");
             modal.style.display = "block";
@@ -288,11 +288,11 @@ function invalid(invalid) {
         "Error"
     );
     if(invalid == ""){
-        $("#responseText").html(
+        $("#responModal").html(
             "<h5 class='text-danger'>Isi perihal terlebih dahulu sebelum menekan tombol Publikasi</h5>" 
         );
     }else if(invalid == "ttd"){
-        $("#responseText").html(
+        $("#responModal").html(
             "<h5 class='text-danger'>Unggah tanda tangan terlebih dahulu sebelum menggunakan fitur ini!</h5>" 
         );
     }else if(invalid == "kosong"){
