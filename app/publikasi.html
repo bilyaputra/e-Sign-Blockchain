@@ -196,8 +196,8 @@
 			<!-- Modal content -->
 			<div class="modal-content">
 				<div class="modal-header" style="text-align: center">
-					<h3 style="padding-top: 10px">Status Publikasi</h3>
-					<span class="close">&times;</span>
+					<h3 id="modalHead" style="padding-top: 10px"></h3>
+					<span id="tutup" class="close">&times;</span>
 				</div>
 				<div class="modal-body" style="text-align: center">
 					<div
@@ -238,5 +238,24 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js" integrity="sha512-nnNHpffPSgINrsR8ZAIgFUIMexORL5tPwsfktOTxVYSv+AUAILuFYWES8IHl+hhIhpFGlKvWFiz9ZEusrPcSBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="qrcode.min.js"></script>
 		<script src="app.js"></script>
+		<script>
+			$(document).ready(function(){
+			App.load()    
+
+			$("#publikasi").click(function (event) {
+				perihal = $("#perihal").val();
+				if(perihal.length == ""){
+					invalid(perihal);
+				}
+				else{
+					App.publikasi(perihal);
+				}
+			});
+
+			ethereum.on('accountsChanged', function (accounts) {
+				window.location.reload()        
+			});        
+		})
+		</script>
 	</body>
 </html>

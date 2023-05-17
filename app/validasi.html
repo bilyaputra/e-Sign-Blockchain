@@ -168,8 +168,8 @@
 			<!-- Modal content -->
 			<div class="modal-content">
 				<div class="modal-header" style="text-align: center">
-					<h3 style="padding-top: 10px">Error</h3>
-					<span class="close">&times;</span>
+					<h3 id="modalHead" style="padding-top: 10px"></h3>
+					<span id="tutup" class="close">&times;</span>
 				</div>
 				<div class="modal-body" style="text-align: center">
 					<div
@@ -190,6 +190,15 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js" integrity="sha512-vtUOC0YIaNm/UutU7yfnwqnF9LOYnXtpHe2kwi1nvJNloeGQuncNBiEKP/3Ww3D62USAhbXGsnYpAYoiDsa+wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
 		<script src="date.js"></script>
-		<script src="validasi.js"></script>
+		<script src="app.js"></script>
+		<script>
+			$(document).ready(function(){
+				App.validPage()    
+				
+				ethereum.on('accountsChanged', function (accounts) {
+					window.location.reload()        
+				});        
+			})
+		</script>
 	</body>
 </html>	

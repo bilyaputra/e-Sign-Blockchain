@@ -101,5 +101,14 @@
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>  
     <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>  
     <script src="app.js"></script>
+	<script>
+		$(document).ready(function(){
+			App.load()    
+			
+			ethereum.on('accountsChanged', function (accounts) {
+				window.location.reload()        
+			});        
+		})
+	</script>
 </body>
 </html>

@@ -3,7 +3,7 @@ App = {
 
     load: async ()=> {
         await App.loadWeb3()
-        // await App.loadMetamask()
+        await App.loadMetamask()
         await App.loadContract()
         await App.loadAccount()
     },
@@ -15,13 +15,23 @@ App = {
         }
     }, 
 
-    // loadMetamask: async ()=> {
-    //     if (window.ethereum) {
-    //         window.ethereum.enable();
-    //     } else {
-    //         alert("Tidak ada ethereum terdeteksi pada browser.");
-    //     } 
-    // },
+    loadMetamask: async ()=> {
+        if (window.ethereum) {
+            window.ethereum.enable();
+        } else {
+            //modal
+            $("#modalHead").html(
+                "Pemberitahuan"
+            );
+            $("#responModal").html(
+                "<h5 class='text-danger'>Install Metamask terlebih dahulu pada browser Anda sebelum menggunakan aplikasi!</h5>"
+            );
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            var span = document.getElementById("tutup");
+            span.style.display = "none";
+        } 
+    },
 
     loadContract: async ()=> {
         const e_Sign = await $.getJSON('eSign.json')
@@ -69,10 +79,10 @@ App = {
     }
 }
 
-$(document).ready(function(){
-    App.riwayat()    
+// $(document).ready(function(){
+//     App.riwayat()    
     
-    ethereum.on('accountsChanged', function (accounts) {
-        window.location.reload()        
-    });        
-})
+//     ethereum.on('accountsChanged', function (accounts) {
+//         window.location.reload()        
+//     });        
+// })
